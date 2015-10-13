@@ -1,13 +1,6 @@
 Rails.application.routes.draw do
 
 
-  get 'fish/slide'
-
-  get 'mice/squeak'
-
-  get 'mice/skuttle'
-
-  get 'fish/swim'
 
   # get 'restaurants' => 'restaurants#index'
 
