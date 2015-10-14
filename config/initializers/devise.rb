@@ -249,7 +249,7 @@ Devise.setup do |config|
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine
   # is mountable, there are some extra configurations to be taken into account.
-  # The following options are available, assuming the engine is mounted as:
+  # The foll,owing options are available, assuming the engine is mounted as:
   #
   #     mount MyEngine, at: '/my_engine'
   #
@@ -259,4 +259,8 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+
+
+
+  config.omniauth :gplus, Rails.application.secrets.google_id, Rails.application.secrets.google_plus_secret
 end
