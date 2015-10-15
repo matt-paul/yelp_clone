@@ -38,6 +38,13 @@ feature 'restaurants' do
       expect(current_path).to eq '/restaurants'
     end
 
+    scenario 'a user cannot create a restaurant if they are not signed in' do
+      click_link 'Sign out'
+      visit '/restaurants'
+      click_link 'Add a restaurant'
+      expect(current_path).to eq '/users/sign_in'
+    end
+
     context 'an invalid restaurant' do
       it 'does not let you submit a name that is too short' do
         visit '/restaurants'
