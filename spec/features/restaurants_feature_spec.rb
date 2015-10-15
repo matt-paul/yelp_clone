@@ -83,12 +83,25 @@ feature 'restaurants' do
   end
 
   context 'deleting restaurants' do
-    before {Restaurant.create name: 'KFC'}
+    before do
+      click_link 'Add a restaurant'
+      fill_in 'Name', with: "Matt's Eatery"
+      click_button 'Create Restaurant'
+    end
 
     scenario 'removes a restaurant when a user clicks a delete link' do
       visit '/restaurants'
-      click_link 'Delete KFC'
+      click_link "Delete Matt's Eatery"
       expect(page).to have_content 'Restaurant deleted successfully'
+    end
+
+    scenario 'cannot delete a restaurant that you did not create' do
+      click_link 'Sign out'
+      @wrong_user = create(:user, email: 'wrong@test.com')
+      sign_in(@wrong_user)
+      visit '/restaurants'
+      click_link "Delete Matt's Eatery"
+      expect(page).to have_content "Need to be correct user"
     end
   end
 
