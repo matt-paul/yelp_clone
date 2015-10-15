@@ -2,6 +2,11 @@ require 'rails_helper'
 
 feature 'restaurants' do
 
+  before(:each) do
+    @user = create(:user)
+    sign_in(@user)
+  end
+
   context 'restaurants have been added' do
     before do
       Restaurant.create(name: 'KFC')
