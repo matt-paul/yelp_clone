@@ -261,6 +261,6 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
 
-
-  config.omniauth :gplus, Rails.application.secrets.google_id, Rails.application.secrets.google_plus_secret
+  config.omniauth :github, Rails.application.secrets.github_id, Rails.application.secrets.github_secret, scope: "user,repo,gist"
+  # config.omniauth :gplus, Rails.application.secrets.google_id, Rails.application.secrets.google_secret
 end

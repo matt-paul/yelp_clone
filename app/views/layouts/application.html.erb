@@ -8,8 +8,6 @@
 </head>
 <body>
 
-  <%=notice %>
-
 <%= yield %>
 
 <p class="notice"><%= notice %></p>
@@ -20,8 +18,8 @@
 <% else %>
   <%= link_to "Sign in", new_user_session_path %>
   <%= link_to "Sign up", new_user_registration_path %>
-  <%= link_to "Sign in with Google plus", user_omniauth_authorize_path(:gplus) %>
-  
+  <%= link_to "Sign in with Github", user_omniauth_authorize_path(:github) %>
+
 <% end %>
 
 </body>
